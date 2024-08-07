@@ -35,62 +35,6 @@ PipelineImageInput = Union[
     List[torch.FloatTensor],
 ]
 
-EXAMPLE_DOC_STRING = """
-    Examples:
-        ```py
-        >>> # !pip install transformers accelerate
-        >>> from diffusers import StableDiffusionControlNetInpaintPipeline, ControlNetModel, DDIMScheduler
-        >>> from diffusers.utils import load_image
-        >>> import numpy as np
-        >>> import torch
-
-        >>> init_image = load_image(
-        ...     "https://huggingface.co/datasets/diffusers/test-arrays/resolve/main/stable_diffusion_inpaint/boy.png"
-        ... )
-        >>> init_image = init_image.resize((512, 512))
-
-        >>> generator = torch.Generator(device="cpu").manual_seed(1)
-
-        >>> mask_image = load_image(
-        ...     "https://huggingface.co/datasets/diffusers/test-arrays/resolve/main/stable_diffusion_inpaint/boy_mask.png"
-        ... )
-        >>> mask_image = mask_image.resize((512, 512))
-
-
-        >>> def make_canny_condition(image):
-        ...     image = np.array(image)
-        ...     image = cv2.Canny(image, 100, 200)
-        ...     image = image[:, :, None]
-        ...     image = np.concatenate([image, image, image], axis=2)
-        ...     image = Image.fromarray(image)
-        ...     return image
-
-
-        >>> control_image = make_canny_condition(init_image)
-
-        >>> controlnet = ControlNetModel.from_pretrained(
-        ...     "lllyasviel/control_v11p_sd15_inpaint", torch_dtype=torch.float16
-        ... )
-        >>> pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained(
-        ...     "runwayml/stable-diffusion-v1-5", controlnet=controlnet, torch_dtype=torch.float16
-        ... )
-
-        >>> pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
-        >>> pipe.enable_model_cpu_offload()
-
-        >>> # generate image
-        >>> image = pipe(
-        ...     "a handsome man with ray-ban sunglasses",
-        ...     num_inference_steps=20,
-        ...     generator=generator,
-        ...     eta=1.0,
-        ...     image=init_image,
-        ...     mask_image=mask_image,
-        ...     control_image=control_image,
-        ... ).images[0]
-        ```
-"""
-
 class StableDiffusionControlNetInpaintConsistentIDPipeline(StableDiffusionControlNetInpaintPipeline, BaseConsistentIDPipeline):
 
     @torch.no_grad()
@@ -351,7 +295,7 @@ class StableDiffusionControlNetInpaintConsistentIDPipeline(StableDiffusionContro
             do_classifier_free_guidance,
         )
 
-        # 11. Prepare extra step kwargs. TODO: Logic should ideally just be moved out of the pipeline
+        # 11. Prepare extra step kwargs.
         extra_step_kwargs = self.prepare_extra_step_kwargs(generator, eta)
         
         (
