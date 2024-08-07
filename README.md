@@ -7,3 +7,24 @@ At the same time, we have defined a unified measurement benchmark FGIS for Fine-
 Finally, a large number of experiments were conducted in this article, and ConsistentID achieved the effect of SOTA in facial personalization task processing. It was verified that ConsistentID can improve ID consistency and even modify facial features by selecting finer-grained prompts, which opens up a direction for future research on Fine-Grained facial personalization.
 
 
+## Requirements
+
+To install requirements:
+
+```setup
+pip3 install -r requirements.txt
+```
+
+## Train
+
+```setup
+bash train_bash.sh
+```
+
+
+## Infer
+
+```setup
+python infer_demo/infer.py
+```
+
