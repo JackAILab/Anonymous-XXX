@@ -34,7 +34,7 @@ class BaseConsistentIDPipeline:
         subfolder: str = '',
         trigger_word_ID: str = '<|image|>',
         trigger_word_facial: str = '<|facial|>',
-        image_encoder_path: str = 'laion/CLIP-ViT-H-14-laion2B-s32B-b79K',  
+        image_encoder_path: str = './CLIP-ViT-H-14-laion2B-s32B-b79K',  
         torch_dtype = torch.float16,
         num_tokens = 4,
         lora_rank= 128,
@@ -59,7 +59,7 @@ class BaseConsistentIDPipeline:
         ### BiSeNet
         self.bise_net = BiSeNet(n_classes = 19)
         self.bise_net.cuda()
-        self.bise_net_cp='JackAILab/ConsistentID/face_parsing.pth' 
+        self.bise_net_cp='./face_parsing.pth' 
         self.bise_net.load_state_dict(torch.load(self.bise_net_cp))
         self.bise_net.eval()
         # Colors for all 20 parts
@@ -74,8 +74,7 @@ class BaseConsistentIDPipeline:
                     [0, 255, 255], [85, 255, 255], [170, 255, 255]]
         
         ### LLVA (Optional)
-        self.llva_model_path = "liuhaotian/llava-v1.5-13b" # TODO 
-        # IMPORTANT! Download the openai/clip-vit-large-patch14-336 model and specify the model path in config.json ("mm_vision_tower": "openai/clip-vit-large-patch14-336").
+        self.llva_model_path = "./llava-v1.5-13b" # TODO 
         self.llva_prompt = "Describe this person's facial features for me, including face, ears, eyes, nose, and mouth." 
         self.llva_tokenizer, self.llva_model, self.llva_image_processor, self.llva_context_len = None,None,None,None #load_pretrained_model(self.llva_model_path)
 
