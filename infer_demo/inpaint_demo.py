@@ -16,12 +16,10 @@ if torch.cuda.is_available():
 else:
     device = torch.device('cpu')
     print("GPU is not available. Using CPU.")
-base_model_path = "SG161222/Realistic_Vision_V6.0_B1_noVAE"
-consistentID_path = "JackAILab/ConsistentID/ConsistentID-v1.bin"
+base_model_path = "./Realistic_Vision_V6.0_B1_noVAE"
+consistentID_path = "./ConsistentID-v1.bin"
 
 # Load initial and mask images
-# init_image_url = " " # TODO need to be checked
-# mask_image_url = " "
 init_image = load_image(init_image_url)
 mask_image = load_image(mask_image_url)
 
@@ -42,7 +40,7 @@ control_image = make_canny_condition(init_image)
 
 # Load control model for inpainting
 controlnet = ControlNetModel.from_pretrained(
-    "lllyasviel/control_v11p_sd15_inpaint", 
+    "./control_v11p_sd15_inpaint", 
     torch_dtype=torch.float16,
 ).to(device) 
 
