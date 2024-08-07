@@ -20,8 +20,6 @@ base_model_path = "./Realistic_Vision_V6.0_B1_noVAE"
 consistentID_path = "./ConsistentID-v1.bin"
 
 # Load initial and mask images
-# init_image_url = " " # TODO need to be checked
-# mask_image_url = " "
 init_image = load_image(init_image_url)
 mask_image = load_image(mask_image_url)
 
