@@ -5,8 +5,10 @@ Anonymous demo: http://consistentid.natapp1.cc/
 ![Framework](https://github.com/user-attachments/assets/1b4db078-a269-4119-88e6-f522aa6341b1)
 
 
-![IMGs_v2](https://github.com/user-attachments/assets/73ced00b-074c-42c5-a245-882d0b52e48f)
+![IMGs_v2](https://github.com/user-attachments/assets/1cc66d57-aecd-4995-b511-a0f86d7940a1)
 
+
+![IMGs_facial](https://github.com/user-attachments/assets/e810fa60-7011-4194-9159-3fe61cdb2160)
 
 
 ## Requirements
@@ -33,7 +35,7 @@ python infer_demo/infer.py
 ## Infer with ControlNet
 
 ```setup
-python -m demo.inpaint_demo
-python -m demo.controlnet_demo
+python infer_controlnet_demo/inpaint_demo.py
+python infer_controlnet_demo/controlnet_demo.py
 ```
 
