@@ -8,7 +8,7 @@ Anonymous demo: http://consistentid.natapp1.cc/
 ![IMGs_v2](https://github.com/user-attachments/assets/1cc66d57-aecd-4995-b511-a0f86d7940a1)
 
 
-![IMGs_facial](https://github.com/user-attachments/assets/e810fa60-7011-4194-9159-3fe61cdb2160)
+![IMGs_facial](https://github.com/user-attachments/assets/591aee2f-60a8-4df3-86ff-0afa226c89c3)
 
 
 ## Requirements
