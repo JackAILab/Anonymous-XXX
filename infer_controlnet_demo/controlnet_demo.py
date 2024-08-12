@@ -47,7 +47,7 @@ def make_canny_condition(image):
 
 ### openpose-control
 ### include_body=True, include_hand=False, include_face=False, hand_and_face=None,
-processor = OpenposeDetector.from_pretrained(pretrained_model_or_path="/data2/huangjiehui_m22/pretrained_model/ControlNet", filename='/data2/huangjiehui_m22/pretrained_model/ControlNet/annotator/ckpts/body_pose_model.pth')
+processor = OpenposeDetector.from_pretrained(pretrained_model_or_path="./ControlNet", filename='./ControlNet/annotator/ckpts/body_pose_model.pth')
 control_image = processor(ref_image, include_face=True)
 
 # pdb.set_trace()
