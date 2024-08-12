@@ -1,7 +1,7 @@
 # ConsistentID: Portrait Generation with Multimodal Fine-Grained Identity Preserving
 
 This repository contains the implementation of the paper.
-Anonymous demo: http://consistentid.natapp1.cc/
+
 ![Framework](https://github.com/user-attachments/assets/1b4db078-a269-4119-88e6-f522aa6341b1)
 
 
